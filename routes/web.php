@@ -20,7 +20,7 @@ Route::get('/', [AllController::class, 'home'])->name('home');
 
 //BACK
 Route::get('/admin', function(){
-    return view('backoffice/admin');
+    return view('admin.dashboard');
 })->name('admin');
 
 //Crud ingrédient

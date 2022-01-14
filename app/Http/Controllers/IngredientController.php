@@ -9,12 +9,12 @@ class IngredientController extends Controller
 {
     public function index(){
         $ingredients = Ingredient::all();
-        return view('backoffice/ingredients/ingredients', compact('ingredients'));
+        return view('admin/ingredients/main', compact('ingredients'));
     }
 
     //CREATE
     public function create(){
-        return view('backoffice/ingredients/createIngre');
+        return view('admin/ingredients/create');
     }
     public function store(Request $request){
         $ingredient = new Ingredient();
@@ -28,13 +28,13 @@ class IngredientController extends Controller
     //DELETE
     public function destroy(Ingredient $id){
         $id->delete();
-        return redirect()->back();
+        return redirect()->route('ingre.index');
     }
 
     //SHOW
     public function show(Ingredient $id){
         $ingredient = $id;
-        return view('backoffice/ingredients/showIngre', compact('ingredient'));
+        return view('admin/ingredients/show', compact('ingredient'));
     }
 
 }
